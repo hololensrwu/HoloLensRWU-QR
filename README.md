@@ -55,10 +55,9 @@ This sample shows you how to use QR Codes in Unity projects using a HoloLens or 
 
 ## Key concepts
 
-You can find the [full article on QR code tracking](https://docs.microsoft.com/windows/mixed-reality/develop/platform-capabilities-and-apis/qr-code-tracking) on Microsoft Docs. The following is a breakdown of each C# script in the sample app:
+https://docs.microsoft.com/windows/mixed-reality/develop/platform-capabilities-and-apis/qr-code-tracking
 
 `QRCode.cs` - This script is attached to the QR code object and populates the text displayed in the scene with the QR code properties on `Start`.
-
 `QRCodesManager.cs` - This is the main class that handles the QR SDK, including: 
 * Loading the plugin
 * Checking if tracking is supported
@@ -77,26 +76,20 @@ You can find the [full article on QR code tracking](https://docs.microsoft.com/w
 `SpatialGraphNode.cs` - This script is abstracting the tracking of a spatial graph static node, which represents the tracking information of QR code in a GUID id.
 
 ## OpenXR sample
-
-Note that the ["main" branch](https://github.com/microsoft/MixedReality-QRCode-Sample/tree/main) of this sample is working with Unity's "Windows XR Plugin" which works with the WinRT APIs in in Unity 2019 or 2020 LTS versions.
-
-After upgrading to Unity 2020 or Unity 2021, You can also [use "OpenXR plugin" for HoloLens 2 developement](https://docs.microsoft.com/windows/mixed-reality/develop/unity/mixed-reality-openxr-plugin).  With OpenXR plugin, the app can use the built-in support for [SpatialGraphNode](https://docs.microsoft.com/dotnet/api/microsoft.mixedreality.openxr.spatialgraphnode), and the QR code tracking will work mostly the same way as above.
-
 To view the OpenXR version of the QRCode tracking on HoloLens 2, please checkout the "openxr" branch of this sample repro,  https://github.com/microsoft/MixedReality-QRCode-Sample/tree/OpenXR.  
 You can also inspect how to make modifications to existing QRCode Unity project to support OpenXR from this pull request: https://github.com/microsoft/MixedReality-QRCode-Sample/pull/18
 
 
 ## API Reference
 
-You can find the [complete API reference](https://docs.microsoft.com/windows/mixed-reality/develop/platform-capabilities-and-apis/qr-code-tracking#qr-api-reference) for Microsoft.MixedReality.QR NuGet package on Microsoft Docs.
+https://docs.microsoft.com/windows/mixed-reality/develop/platform-capabilities-and-apis/qr-code-tracking#qr-api-reference
 
 ## Best practices 
 
 * **Quiet zones**: To be read correctly, QR codes require a margin around all sides of the code. This margin must not contain any printed content and should be four modules (a single black square in the code) wide. 
     * The [QR spec](https://www.qrcode.com/howto/code.html) contains more information about quiet zones.
 
-* **Lighting and backdrop**: QR code detection quality is susceptible to varying illumination and backdrop. In a scene with bright lighting, print a code that is black on a gray background. Otherwise, print a black QR code on a white background. 
-    * If the backdrop to the code is dark, try a black on gray code if your detection rate is low. If the backdrop is relatively light, a regular code should work fine.
+* **Lighting and backdrop**: If the backdrop to the code is dark, try a black on gray code if your detection rate is low. If the backdrop is relatively light, a regular code should work fine.
 
 * **Size**: Windows Mixed Reality devices don't work with QR codes with sides smaller than 5 cm each. For QR codes between 5 cm and 10-cm length sides, you must be fairly close to detect the code. It will also take longer to detect codes at this size. 
     * The exact time to detect codes depends not only on the size of the QR codes, but how far you're away from the code. Moving closer to the code will help offset issues with size.
@@ -109,17 +102,3 @@ You can find the [complete API reference](https://docs.microsoft.com/windows/mix
 * [QR code tracking](https://docs.microsoft.com/windows/mixed-reality/develop/platform-capabilities-and-apis/qr-code-tracking#quiet-zones-around-qr-codes)
 * [World locking and spatial anchors](https://docs.microsoft.com/windows/mixed-reality/design/spatial-anchors-in-unity)
 * [HoloLens environment considerations](https://docs.microsoft.com/hololens/hololens-environment-considerations)
-
-## Contributing
-
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
-
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
